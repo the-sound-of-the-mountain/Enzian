@@ -1,5 +1,5 @@
 /*
-	File:SoundflowerEngine.h
+	File:EnzianEngine.h
 
 	Version: 1.0.1, ma++ ingalls
     
@@ -24,16 +24,16 @@
 	THE SOFTWARE.
 */
 
-#ifndef _SoundflowerENGINE_H
-#define _SoundflowerENGINE_H
+#ifndef _EnzianENGINE_H
+#define _EnzianENGINE_H
 
 #include <IOKit/audio/IOAudioEngine.h>
-#include "SoundflowerDevice.h"
+#include "EnzianDevice.h"
 
 
-class SoundflowerEngine : public IOAudioEngine
+class EnzianEngine : public IOAudioEngine
 {
-    OSDeclareDefaultStructors(SoundflowerEngine)
+    OSDeclareDefaultStructors(EnzianEngine)
     
 	UInt32				mBufferSize;
 	void*				mBuffer;				// input/output buffer
@@ -82,4 +82,4 @@ public:
 };
 
 
-#endif /* _SoundflowerENGINE_H */
+#endif /* _EnzianENGINE_H */

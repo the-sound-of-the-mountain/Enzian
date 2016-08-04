@@ -14,39 +14,39 @@
 	NSStatusItem	*mSbItem;
 	NSMenu			*mMenu;
 	NSMenuItem		*m2chMenu;
-	NSMenuItem		*m16chMenu;
+	NSMenuItem		*m64chMenu;
 	NSMenu			*m2chBuffer;
-	NSMenu			*m16chBuffer;
+	NSMenu			*m64chBuffer;
     
 	BOOL			menuItemVisible;
     int             m2StartIndex;   //Menu Index of "None"
-	int				m16StartIndex;
+	int				m64StartIndex;
 	
 	NSMenuItem		*mCur2chDevice;
-	NSMenuItem		*mCur16chDevice;
+	NSMenuItem		*mCur64chDevice;
 	NSMenuItem		*mCur2chBufferSize;
-	NSMenuItem		*mCur16chBufferSize;
+	NSMenuItem		*mCur64chBufferSize;
 	
     AudioThruEngine	*mThruEngine[NUM_DEVICES];
     
     AudioDeviceID   mSuspended2chDeviceID;
-    AudioDeviceID   mSuspended16chDeviceID;
+    AudioDeviceID   mSuspended64chDeviceID;
 	
-	AudioDeviceID				mSoundflower2Device;
-	AudioDeviceID				mSoundflower16Device;
+	AudioDeviceID				mEnzian2Device;
+	AudioDeviceID				mEnzian64Device;
 	
 	AudioDeviceList *			mOutputDeviceList;	
 	
 	UInt32 mNchnls2;
-	UInt32 mNchnls16;
+	UInt32 mNchnls64;
 	
 	AudioDeviceID mMenuID2[64];
-	AudioDeviceID mMenuID16[64];
+	AudioDeviceID mMenuID64[64];
 	
 	IBOutlet HelpWindowController *mAboutController;
     //IBOutlet VolumeView *mVolumeView;
     id mVolumeViewController2ch;
-    id mVolumeViewController16ch;
+    id mVolumeViewController64ch;
 }
 
 - (IBAction)suspend;

@@ -1,5 +1,5 @@
 /*
-  File:SoundflowerDevice.cpp
+  File:EnzianDevice.cpp
 
 	Version: 1.0.1, ma++ ingalls
     
@@ -25,17 +25,17 @@
 */
 
 /*
-    Soundflower is derived from Apple's 'PhantomAudioDriver'
+    Enzian is derived from Apple's 'PhantomAudioDriver'
     sample code.  It uses the same timer mechanism to simulate a hardware
     interrupt, with some additional code to compensate for the software
     timer's inconsistencies.  
     
-    Soundflower basically copies the mixbuffer and presents it to clients
+    Enzian basically copies the mixbuffer and presents it to clients
     as an input buffer, allowing applications to send audio one another.
 */
 
-#include "SoundflowerDevice.h"
-#include "SoundflowerEngine.h"
+#include "EnzianDevice.h"
+#include "EnzianEngine.h"
 #include <IOKit/audio/IOAudioControl.h>
 #include <IOKit/audio/IOAudioLevelControl.h>
 #include <IOKit/audio/IOAudioToggleControl.h>
@@ -44,27 +44,27 @@
 
 #define super IOAudioDevice
 
-OSDefineMetaClassAndStructors(SoundflowerDevice, IOAudioDevice)
+OSDefineMetaClassAndStructors(EnzianDevice, IOAudioDevice)
 
 // There should probably only be one of these? This needs to be 
 // set to the last valid position of the log lookup table. 
-const SInt32 SoundflowerDevice::kVolumeMax = 99;
-const SInt32 SoundflowerDevice::kGainMax = 99;
+const SInt32 EnzianDevice::kVolumeMax = 99;
+const SInt32 EnzianDevice::kGainMax = 99;
 
 
 
 
-bool SoundflowerDevice::initHardware(IOService *provider)
+bool EnzianDevice::initHardware(IOService *provider)
 {
     bool result = false;
     
-	//IOLog("SoundflowerDevice[%p]::initHardware(%p)\n", this, provider);
+	//IOLog("EnzianDevice[%p]::initHardware(%p)\n", this, provider);
     
     if (!super::initHardware(provider))
         goto Done;
     
-    setDeviceName("Soundflower");
-    setDeviceShortName("Soundflower");
+    setDeviceName("Enzian");
+    setDeviceShortName("Enzian");
     setManufacturerName("ma++ ingalls for Cycling '74");
     
     if (!createAudioEngines())
@@ -78,30 +78,30 @@ Done:
 }
 
 
-bool SoundflowerDevice::createAudioEngines()
+bool EnzianDevice::createAudioEngines()
 {
     OSArray*				audioEngineArray = OSDynamicCast(OSArray, getProperty(AUDIO_ENGINES_KEY));
     OSCollectionIterator*	audioEngineIterator;
     OSDictionary*			audioEngineDict;
 	
     if (!audioEngineArray) {
-        IOLog("SoundflowerDevice[%p]::createAudioEngine() - Error: no AudioEngine array in personality.\n", this);
+        IOLog("EnzianDevice[%p]::createAudioEngine() - Error: no AudioEngine array in personality.\n", this);
         return false;
     }
     
 	audioEngineIterator = OSCollectionIterator::withCollection(audioEngineArray);
     if (!audioEngineIterator) {
-		IOLog("SoundflowerDevice: no audio engines available.\n");
+		IOLog("EnzianDevice: no audio engines available.\n");
 		return true;
 	}
     
     while ((audioEngineDict = (OSDictionary*)audioEngineIterator->getNextObject())) {
-		SoundflowerEngine*	audioEngine = NULL;
+		EnzianEngine*	audioEngine = NULL;
 		
         if (OSDynamicCast(OSDictionary, audioEngineDict) == NULL)
             continue;
         
-		audioEngine = new SoundflowerEngine;
+		audioEngine = new EnzianEngine;
         if (!audioEngine)
 			continue;
         
@@ -120,14 +120,14 @@ bool SoundflowerDevice::createAudioEngines()
 
 #define addControl(control, handler) \
     if (!control) {\
-		IOLog("Soundflower failed to add control.\n");	\
+		IOLog("Enzian failed to add control.\n");	\
 		return false; \
 	} \
     control->setValueChangeHandler(handler, this); \
     audioEngine->addDefaultAudioControl(control); \
     control->release();
 
-bool SoundflowerDevice::initControls(SoundflowerEngine* audioEngine)
+bool EnzianDevice::initControls(EnzianEngine* audioEngine)
 {
     IOAudioControl*	control = NULL;
     
@@ -160,9 +160,9 @@ bool SoundflowerDevice::initControls(SoundflowerEngine* audioEngine)
 		 // scheme, we use a size 100 lookup table to compute the correct log scaling. And set
 		 // the minimum to -40 dB. Perhaps -50 dB would have been better, but this seems ok.
 		 
-        control = IOAudioLevelControl::createVolumeControl(SoundflowerDevice::kVolumeMax,		// Initial value
+        control = IOAudioLevelControl::createVolumeControl(EnzianDevice::kVolumeMax,		// Initial value
                                                            0,									// min value
-                                                           SoundflowerDevice::kVolumeMax,		// max value
+                                                           EnzianDevice::kVolumeMax,		// max value
                                                            (-40 << 16) + (32768),				// -72 in IOFixed (16.16)
                                                            0,									// max 0.0 in IOFixed
                                                            channel,								// kIOAudioControlChannelIDDefaultLeft,
@@ -172,9 +172,9 @@ bool SoundflowerDevice::initControls(SoundflowerEngine* audioEngine)
         addControl(control, (IOAudioControl::IntValueChangeHandler)volumeChangeHandler);
         
         // Gain control for each channel
-        control = IOAudioLevelControl::createVolumeControl(SoundflowerDevice::kGainMax,			// Initial value
+        control = IOAudioLevelControl::createVolumeControl(EnzianDevice::kGainMax,			// Initial value
                                                            0,									// min value
-                                                           SoundflowerDevice::kGainMax,			// max value
+                                                           EnzianDevice::kGainMax,			// max value
                                                            0,									// min 0.0 in IOFixed
                                                            (40 << 16) + (32768),				// 72 in IOFixed (16.16)
                                                            channel,								// kIOAudioControlChannelIDDefaultLeft,
@@ -204,10 +204,10 @@ bool SoundflowerDevice::initControls(SoundflowerEngine* audioEngine)
 }
 
 
-IOReturn SoundflowerDevice::volumeChangeHandler(IOService *target, IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::volumeChangeHandler(IOService *target, IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue)
 {
     IOReturn			result = kIOReturnBadArgument;
-    SoundflowerDevice*	audioDevice = (SoundflowerDevice *)target;
+    EnzianDevice*	audioDevice = (EnzianDevice *)target;
 	
     if (audioDevice)
         result = audioDevice->volumeChanged(volumeControl, oldValue, newValue);
@@ -215,7 +215,7 @@ IOReturn SoundflowerDevice::volumeChangeHandler(IOService *target, IOAudioContro
 }
 
 
-IOReturn SoundflowerDevice::volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue)
 {
     if (volumeControl)
          mVolume[volumeControl->getChannelID()] = newValue;
@@ -223,10 +223,10 @@ IOReturn SoundflowerDevice::volumeChanged(IOAudioControl *volumeControl, SInt32 
 }
 
 
-IOReturn SoundflowerDevice::outputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::outputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
 {
     IOReturn			result = kIOReturnBadArgument;
-    SoundflowerDevice*	audioDevice = (SoundflowerDevice*)target;
+    EnzianDevice*	audioDevice = (EnzianDevice*)target;
 	
     if (audioDevice)
         result = audioDevice->outputMuteChanged(muteControl, oldValue, newValue);
@@ -234,7 +234,7 @@ IOReturn SoundflowerDevice::outputMuteChangeHandler(IOService *target, IOAudioCo
 }
 
 
-IOReturn SoundflowerDevice::outputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::outputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
 {
     if (muteControl)
          mMuteOut[muteControl->getChannelID()] = newValue;
@@ -242,10 +242,10 @@ IOReturn SoundflowerDevice::outputMuteChanged(IOAudioControl *muteControl, SInt3
 }
 
 
-IOReturn SoundflowerDevice::gainChangeHandler(IOService *target, IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::gainChangeHandler(IOService *target, IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue)
 {
     IOReturn			result = kIOReturnBadArgument;
-    SoundflowerDevice*	audioDevice = (SoundflowerDevice *)target;
+    EnzianDevice*	audioDevice = (EnzianDevice *)target;
 	
     if (audioDevice)
         result = audioDevice->gainChanged(gainControl, oldValue, newValue);
@@ -253,7 +253,7 @@ IOReturn SoundflowerDevice::gainChangeHandler(IOService *target, IOAudioControl 
 }
 
 
-IOReturn SoundflowerDevice::gainChanged(IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::gainChanged(IOAudioControl *gainControl, SInt32 oldValue, SInt32 newValue)
 {
     if (gainControl)
 		mGain[gainControl->getChannelID()] = newValue;
@@ -261,10 +261,10 @@ IOReturn SoundflowerDevice::gainChanged(IOAudioControl *gainControl, SInt32 oldV
 }
 
 
-IOReturn SoundflowerDevice::inputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::inputMuteChangeHandler(IOService *target, IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
 {
     IOReturn			result = kIOReturnBadArgument;
-    SoundflowerDevice*	audioDevice = (SoundflowerDevice*)target;
+    EnzianDevice*	audioDevice = (EnzianDevice*)target;
 
     if (audioDevice)
         result = audioDevice->inputMuteChanged(muteControl, oldValue, newValue);
@@ -272,7 +272,7 @@ IOReturn SoundflowerDevice::inputMuteChangeHandler(IOService *target, IOAudioCon
 }
 
 
-IOReturn SoundflowerDevice::inputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
+IOReturn EnzianDevice::inputMuteChanged(IOAudioControl *muteControl, SInt32 oldValue, SInt32 newValue)
 {
     if (muteControl)
          mMuteIn[muteControl->getChannelID()] = newValue;

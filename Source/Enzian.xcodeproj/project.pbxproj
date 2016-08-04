@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		222AE0091862541400C9BE56 /* SoundflowerDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 222AE0021862541400C9BE56 /* SoundflowerDevice.cpp */; };
-		222AE00A1862541400C9BE56 /* SoundflowerDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AE0031862541400C9BE56 /* SoundflowerDevice.h */; };
-		222AE00B1862541400C9BE56 /* SoundflowerEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 222AE0041862541400C9BE56 /* SoundflowerEngine.cpp */; };
-		222AE00C1862541400C9BE56 /* SoundflowerEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AE0051862541400C9BE56 /* SoundflowerEngine.h */; };
+		222AE0091862541400C9BE56 /* EnzianDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 222AE0021862541400C9BE56 /* EnzianDevice.cpp */; };
+		222AE00A1862541400C9BE56 /* EnzianDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AE0031862541400C9BE56 /* EnzianDevice.h */; };
+		222AE00B1862541400C9BE56 /* EnzianEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 222AE0041862541400C9BE56 /* EnzianEngine.cpp */; };
+		222AE00C1862541400C9BE56 /* EnzianEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 222AE0051862541400C9BE56 /* EnzianEngine.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		222ADFEC1862531600C9BE56 /* Soundflower.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Soundflower.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		222ADFEC1862531600C9BE56 /* Enzian.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Enzian.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		222ADFFF1862541300C9BE56 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		222AE0021862541400C9BE56 /* SoundflowerDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundflowerDevice.cpp; sourceTree = "<group>"; };
-		222AE0031862541400C9BE56 /* SoundflowerDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundflowerDevice.h; sourceTree = "<group>"; };
-		222AE0041862541400C9BE56 /* SoundflowerEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundflowerEngine.cpp; sourceTree = "<group>"; };
-		222AE0051862541400C9BE56 /* SoundflowerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundflowerEngine.h; sourceTree = "<group>"; };
+		222AE0021862541400C9BE56 /* EnzianDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnzianDevice.cpp; sourceTree = "<group>"; };
+		222AE0031862541400C9BE56 /* EnzianDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnzianDevice.h; sourceTree = "<group>"; };
+		222AE0041862541400C9BE56 /* EnzianEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnzianEngine.cpp; sourceTree = "<group>"; };
+		222AE0051862541400C9BE56 /* EnzianEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnzianEngine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,10 +37,10 @@
 			isa = PBXGroup;
 			children = (
 				222ADFFF1862541300C9BE56 /* Info.plist */,
-				222AE0021862541400C9BE56 /* SoundflowerDevice.cpp */,
-				222AE0031862541400C9BE56 /* SoundflowerDevice.h */,
-				222AE0041862541400C9BE56 /* SoundflowerEngine.cpp */,
-				222AE0051862541400C9BE56 /* SoundflowerEngine.h */,
+				222AE0021862541400C9BE56 /* EnzianDevice.cpp */,
+				222AE0031862541400C9BE56 /* EnzianDevice.h */,
+				222AE0041862541400C9BE56 /* EnzianEngine.cpp */,
+				222AE0051862541400C9BE56 /* EnzianEngine.h */,
 				222ADFED1862531600C9BE56 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,7 +48,7 @@
 		222ADFED1862531600C9BE56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				222ADFEC1862531600C9BE56 /* Soundflower.kext */,
+				222ADFEC1862531600C9BE56 /* Enzian.kext */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,17 +60,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222AE00A1862541400C9BE56 /* SoundflowerDevice.h in Headers */,
-				222AE00C1862541400C9BE56 /* SoundflowerEngine.h in Headers */,
+				222AE00A1862541400C9BE56 /* EnzianDevice.h in Headers */,
+				222AE00C1862541400C9BE56 /* EnzianEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		222ADFEB1862531600C9BE56 /* Soundflower */ = {
+		222ADFEB1862531600C9BE56 /* Enzian */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 222ADFFC1862531600C9BE56 /* Build configuration list for PBXNativeTarget "Soundflower" */;
+			buildConfigurationList = 222ADFFC1862531600C9BE56 /* Build configuration list for PBXNativeTarget "Enzian" */;
 			buildPhases = (
 				222ADFE61862531600C9BE56 /* Sources */,
 				222ADFE71862531600C9BE56 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = Soundflower;
+			name = Enzian;
 			productName = Soundflower;
-			productReference = 222ADFEC1862531600C9BE56 /* Soundflower.kext */;
+			productReference = 222ADFEC1862531600C9BE56 /* Enzian.kext */;
 			productType = "com.apple.product-type.kernel-extension";
 		};
 /* End PBXNativeTarget section */
@@ -97,11 +97,11 @@
 				ORGANIZATIONNAME = "Cycling '74";
 				TargetAttributes = {
 					222ADFEB1862531600C9BE56 = {
-						DevelopmentTeam = 3G47DU9NXM;
+						DevelopmentTeam = EJ6B39LVZL;
 					};
 				};
 			};
-			buildConfigurationList = 222ADFE51862531600C9BE56 /* Build configuration list for PBXProject "Soundflower" */;
+			buildConfigurationList = 222ADFE51862531600C9BE56 /* Build configuration list for PBXProject "Enzian" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				222ADFEB1862531600C9BE56 /* Soundflower */,
+				222ADFEB1862531600C9BE56 /* Enzian */,
 			);
 		};
 /* End PBXProject section */
@@ -143,8 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222AE00B1862541400C9BE56 /* SoundflowerEngine.cpp in Sources */,
-				222AE0091862541400C9BE56 /* SoundflowerDevice.cpp in Sources */,
+				222AE00B1862541400C9BE56 /* EnzianEngine.cpp in Sources */,
+				222AE0091862541400C9BE56 /* EnzianDevice.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +226,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.0b1;
 				DEPLOYMENT_LOCATION = YES;
@@ -239,10 +240,11 @@
 				INSTALL_GROUP = wheel;
 				INSTALL_OWNER = root;
 				INSTALL_PATH = /Library/Extensions;
-				MODULE_NAME = com.Cycling74.driver.Soundflower;
+				MODULE_NAME = rocks.mntn.driver.Enzian;
 				MODULE_VERSION = 2.0b1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Enzian;
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = kext;
 			};
@@ -255,6 +257,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.0b1;
 				DEPLOYMENT_LOCATION = YES;
@@ -265,10 +268,11 @@
 				INSTALL_GROUP = wheel;
 				INSTALL_OWNER = root;
 				INSTALL_PATH = /Library/Extensions;
-				MODULE_NAME = com.Cycling74.driver.Soundflower;
+				MODULE_NAME = rocks.mntn.driver.Enzian;
 				MODULE_VERSION = 2.0b1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Enzian;
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = kext;
 			};
@@ -277,7 +281,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		222ADFE51862531600C9BE56 /* Build configuration list for PBXProject "Soundflower" */ = {
+		222ADFE51862531600C9BE56 /* Build configuration list for PBXProject "Enzian" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				222ADFFA1862531600C9BE56 /* Debug */,
@@ -286,7 +290,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		222ADFFC1862531600C9BE56 /* Build configuration list for PBXNativeTarget "Soundflower" */ = {
+		222ADFFC1862531600C9BE56 /* Build configuration list for PBXNativeTarget "Enzian" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				222ADFFD1862531600C9BE56 /* Debug */,
