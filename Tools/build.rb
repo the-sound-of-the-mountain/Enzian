@@ -75,6 +75,8 @@ if /BUILD SUCCEEDED/.match(out)
   puts "    BUILD SUCCEEDED"
 else
   puts "    BUILD FAILED"
+  puts out
+  puts err
 end
 
 

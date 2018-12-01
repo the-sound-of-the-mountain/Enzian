@@ -40,7 +40,7 @@
 #define SEPARATE_INPUT_BUFFERS_KEY		"SeparateInputBuffers"
 #define EnzianDevice				rocks_mntn_driver_EnzianDevice
 
-#define NUM_CHANS 64
+#define NUM_CHANS 128
 
 class EnzianEngine;
 
