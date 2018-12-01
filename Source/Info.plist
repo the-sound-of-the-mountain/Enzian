@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.Cycling74.driver.Soundflower</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.0b2</string>
 	<key>CFBundleSignature</key>
-	<string>sFlo</string>
+	<string>eNzI</string>
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>IOKitPersonalities</key>
@@ -30,7 +30,7 @@
 					<key>BlockSize</key>
 					<integer>8192</integer>
 					<key>Description</key>
-					<string>Soundflower (2ch)</string>
+					<string>Enzian (2ch)</string>
 					<key>Formats</key>
 					<array>
 						<dict>
@@ -72,7 +72,7 @@
 					<key>BlockSize</key>
 					<integer>8192</integer>
 					<key>Description</key>
-					<string>Soundflower (64ch)</string>
+					<string>Enzian (128ch)</string>
 					<key>Formats</key>
 					<array>
 						<dict>
@@ -89,7 +89,7 @@
 							<key>IOAudioStreamIsMixable</key>
 							<integer>1</integer>
 							<key>IOAudioStreamNumChannels</key>
-							<integer>64</integer>
+							<integer>128</integer>
 							<key>IOAudioStreamNumericRepresentation</key>
 							<integer>1936289396</integer>
 							<key>IOAudioStreamSampleFormat</key>
@@ -112,11 +112,11 @@
 				</dict>
 			</array>
 			<key>CFBundleIdentifier</key>
-			<string>com.Cycling74.driver.Soundflower</string>
+			<string>rocks.mntn.driver.Enzian</string>
 			<key>IOClass</key>
-			<string>com_cycling74_driver_SoundflowerDevice</string>
+			<string>rocks_mntn_driver_EnzianDevice</string>
 			<key>IOMatchCategory</key>
-			<string>com_cycling74_driver_SoundflowerDevice</string>
+			<string>rocks_mntn_driver_EnzianDevice</string>
 			<key>IOProviderClass</key>
 			<string>IOResources</string>
 			<key>IOResourceMatch</key>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="1050" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="304" userLabel="AppController" customClass="AppController">
+            <connections>
+                <outlet property="mAboutController" destination="313" id="315"/>
+            </connections>
+        </customObject>
+        <window title="About Enzianbed" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="305" userLabel="Window">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <rect key="contentRect" x="638" y="856" width="377" height="155"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="306">
+                <rect key="frame" x="0.0" y="0.0" width="377" height="155"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView id="307">
+                        <rect key="frame" x="20" y="81" width="48" height="48"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="sf2" id="318"/>
+                    </imageView>
+                    <textField verticalHuggingPriority="750" id="308">
+                        <rect key="frame" x="88" y="99" width="216" height="34"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Enzianbed v1.6.6" id="319">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="309">
+                        <rect key="frame" x="88" y="20" width="199" height="84"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="320">
+                            <font key="font" metaFont="smallSystem"/>
+                            <string key="title">ma++ ingalls | Cycling '74
+2004-2012
+cycling74.com
+Enzian is based on Soudflower
+Enzian is maintained by TAUCHER.interact GmbH</string>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView id="316">
+                        <rect key="frame" x="309" y="81" width="48" height="48"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="sf16" id="321"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="413.5" y="461.5"/>
+        </window>
+        <customObject id="313" userLabel="HelpWindowController" customClass="HelpWindowController">
+            <connections>
+                <outlet property="window" destination="305" id="314"/>
+            </connections>
+        </customObject>
+    </objects>
+    <resources>
+        <image name="sf16" width="32" height="32"/>
+        <image name="sf2" width="32" height="32"/>
+    </resources>
+</document>

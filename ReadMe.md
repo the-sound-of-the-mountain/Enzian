@@ -1,9 +1,16 @@
+# Soundflower + MNTN => Enzian
+
+This is a fork from the famous and great Soundflower for use the the [MNTN
+Spatial Sound Engine](http://mntn.rocks/).
+
+Currently this is mainly a renaming endeavor so that it's possble to use
+Soundflower and Enzian simultaneously.
+
+All credit goes to ma++ ingalls and Cycling'74. Thanks, your awesome!
 
 # JUST LOOKING FOR THE (SIGNED) SOUNDFLOWER INSTALLER?
 https://github.com/mattingalls/Soundflower/releases/tag/2.0b2
 is the latest version
-
-
 
 
 # THE MOST RELIABLE WAY TO UNINSTALL

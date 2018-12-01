@@ -1,5 +1,5 @@
 /*
-	File:SoundflowerDevice.h
+	File:EnzianDevice.h
 
 	Version: 1.0.1, ma++ ingalls
     
@@ -38,16 +38,16 @@
 #define SAMPLE_RATES_KEY				"SampleRates"
 #define SEPARATE_STREAM_BUFFERS_KEY		"SeparateStreamBuffers"
 #define SEPARATE_INPUT_BUFFERS_KEY		"SeparateInputBuffers"
-#define SoundflowerDevice				com_cycling74_driver_SoundflowerDevice
+#define EnzianDevice				rocks_mntn_driver_EnzianDevice
 
-#define NUM_CHANS 64
+#define NUM_CHANS 128
 
-class SoundflowerEngine;
+class EnzianEngine;
 
-class SoundflowerDevice : public IOAudioDevice
+class EnzianDevice : public IOAudioDevice
 {
-    OSDeclareDefaultStructors(SoundflowerDevice)
-    friend class SoundflowerEngine;
+    OSDeclareDefaultStructors(EnzianDevice)
+    friend class EnzianEngine;
     
 	// class members
 	
@@ -67,7 +67,7 @@ class SoundflowerDevice : public IOAudioDevice
 	
     virtual bool initHardware(IOService *provider);
     virtual bool createAudioEngines();
-    virtual bool initControls(SoundflowerEngine *audioEngine);
+    virtual bool initControls(EnzianEngine *audioEngine);
     
     static  IOReturn volumeChangeHandler(IOService *target, IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
     virtual IOReturn volumeChanged(IOAudioControl *volumeControl, SInt32 oldValue, SInt32 newValue);
