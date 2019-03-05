@@ -255,6 +255,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Benjamin Schulz (EJ6B39LVZL)";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.0b1;
 				DEPLOYMENT_LOCATION = YES;
@@ -272,6 +273,7 @@
 				MODULE_NAME = rocks.mntn.driver.Enzian;
 				MODULE_VERSION = 2.0b1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_BUNDLE_IDENTIFIER = rocks.mntn.driver.Enzian;
 				PRODUCT_NAME = Enzian;
 				PROVISIONING_PROFILE = "";
@@ -288,6 +290,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application: Benjamin Schulz (EJ6B39LVZL)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Benjamin Schulz (EJ6B39LVZL)";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2.0b1;
 				DEPLOYMENT_LOCATION = YES;
@@ -302,6 +305,7 @@
 				MODULE_NAME = rocks.mntn.driver.Enzian;
 				MODULE_VERSION = 2.0b1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_BUNDLE_IDENTIFIER = rocks.mntn.driver.Enzian;
 				PRODUCT_NAME = Enzian;
 				PROVISIONING_PROFILE = "";

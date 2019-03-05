@@ -103,7 +103,7 @@ cmd("cp \"#{@svn_root}/Installer/ReadMe.rtf\"                       \"#{@install
 cmd("cp \"#{@svn_root}/EnzianBed/Enzianbed README.rtf\"   \"#{@installer_root}\"/Applications/Enzian")
 
 puts "  Building Package -- this could take a while..."
-puts `pkgbuild --root \"#{@installer_root}\" --identifier rocks.mntn.Enzian --version #{@version} --install-location "/" \"#{@build_folder}/Enzian.pkg\" --ownership preserve  --scripts \"#{@svn_root}/Installer/scripts\" --sign \"Developer ID Installer:\"`
+puts `pkgbuild --root \"#{@installer_root}\" --identifier rocks.mntn.Enzian --version #{@version} --install-location "/" \"#{@build_folder}/Enzian.pkg\" --ownership preserve  --scripts \"#{@svn_root}/Installer/scripts\" --sign \"EJ6B39LVZL\"`
 
 puts "  Copying readme, license, etc...."
 cmd("cp \"#{@svn_root}/License.txt\" \"#{@build_folder}\"")
