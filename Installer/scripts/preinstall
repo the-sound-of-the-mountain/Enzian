@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo "unload the old soundflower"
+echo "unload the old enzian"
 kextunload -q /Library/Extensions/Enzian.kext
+true # clear error code

@@ -2,4 +2,21 @@
 
 echo "touch the extensions directory"
 touch /Library/Extensions
+
 kextload /Library/Extensions/Enzian.kext
+
+if [[ $? -eq 71 ]]; then
+	osascript <<END
+	tell application "System Preferences"
+		display dialog "You need to allow to load Enzian in Security & Privacy settings. The Panel will open once you click OK."
+
+	    set securityPane to pane id "com.apple.preference.security"
+	    tell securityPane to reveal anchor "General"
+	    activate
+	end tell
+END
+
+	while ! kextload /Library/Extensions/Enzian.kext; do
+		sleep 5
+	done
+fi
